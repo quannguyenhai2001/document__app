@@ -1,0 +1,13 @@
+name: Check code style
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn --frozen-lockfile
+      - name: Run prettier
+        run: yarn format
+      - name: Run eslint
+        run: yarn lint

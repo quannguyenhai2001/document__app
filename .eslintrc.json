@@ -1,0 +1,62 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "no-duplicate-imports": "error",
+    "no-unused-vars": ["error", { "vars": "all" }],
+    "semi": ["error", "always"],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"],
+          "unknown"
+        ],
+        "alphabetize": { "order": "asc" },
+        "pathGroups": [
+          {
+            "pattern": "styles/**",
+            "group": "internal",
+            "position": "after"
+          },
+          { "group": "builtin", "pattern": "react", "position": "before" }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
